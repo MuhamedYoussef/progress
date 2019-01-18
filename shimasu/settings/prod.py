@@ -1,6 +1,6 @@
 from .base import *
 SECRET_KEY = os.environ.get('SECRET_KEY')
-DEBUG = False
+DEBUG = True
 ADMINS = (
     ('Mohamed Youssef', 'mu7med.youssef@gmail.com'),
 )
