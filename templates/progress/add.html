@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+<!-- start main section -->
+{% block content %}
+<main class="container pt-4">
+  <section style="max-width:450px;margin:0 auto;">
+    <div class="card">
+      <h5 class="card-header info-color white-text text-center py-4">
+        <strong>Sign in</strong>
+      </h5>
+
+      <!--Card content-->
+      <div class="card-body px-lg-5 pt-0">
+        <!-- Form -->
+        <form method="POST" action="{% url 'add' %}" style="color: #757575;">
+          {% csrf_token %}
+          <div class="pt-5 mt5">
+            <input
+              type="text"
+              name="title"
+              id="title"
+              class="form-control mb-4"
+              placeholder="Title.."
+              required
+            />
+
+            <div class="form-group">
+              <textarea
+                placeholder="Details..."
+                name="details"
+                class="form-control"
+                id="details"
+                rows="7"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-block btn-indigo rounded">
+            SAVE
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}

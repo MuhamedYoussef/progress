@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+<!-- start main section -->
+{% block content %}
+<main class="container">
+  <!-- Vertical Steppers -->
+  <div class="row mt-1">
+    <div class="col-md-12">
+      <ul class="stepper stepper-vertical">
+        {% for progress in progress_list %}
+        <li class="completed">
+          <a>
+            <span class="circle"><i class="far fa-user"></i></span>
+            <span class="label"
+              >{{ user.first_name }} {{ user.last_name }}</span
+            >
+          </a>
+
+          <div class="step-content grey lighten-3 rounded">
+            <h3>{{ progress.title }}</h3>
+            <p style="font-size:1.1rem">{{ progress.details }}</p>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <a
+    href="{% url 'add' %}"
+    class="btn px-0 pt-3 rounded-circle btn-primary"
+    style="height:60px;width:60px;position:fixed;top:85vh;right:30px;"
+  >
+    <i class="fas fa-plus fa-2x"></i>
+  </a>
+</main>
+{% endblock %}

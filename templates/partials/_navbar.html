@@ -1,0 +1,42 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark primary-color">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'index' %}">Shimasu</a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#basicExampleNav"
+      aria-controls="basicExampleNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+      <ul class="navbar-nav mr-auto">
+        <!-- <li class="nav-item"><a class="nav-link" href="#">Features</a></li> -->
+      </ul>
+
+      <section>
+        {% if user.is_authenticated %}
+        <form id="logout" method="POST" action="{% url 'logout' %}">
+          {% csrf_token %}
+        </form>
+        <a
+          href="javascript:{document.getElementById('logout').submit()}"
+          class="btn btn-md btn-primary font-weight-bold"
+          >LOGOUT</a
+        >
+        {% else %}
+        <a
+          href="{% url 'login' %}"
+          class="btn btn-md btn-primary font-weight-bold"
+          >LOGIN</a
+        >
+        {% endif %}
+      </section>
+    </div>
+  </div>
+</nav>

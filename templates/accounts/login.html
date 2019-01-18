@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+<!-- start main section -->
+{% block content %}
+<main class="container pt-4">
+  <section style="max-width:450px;margin:0 auto;">
+    <div class="card">
+      <h5 class="card-header info-color white-text text-center py-4">
+        <strong>Sign in</strong>
+      </h5>
+
+      <!--Card content-->
+      <div class="card-body px-lg-5 pt-0">
+        <!-- Form -->
+        <form
+          method="POST"
+          action="{% url 'login' %}"
+          class="text-center"
+          style="color: #757575;"
+        >
+          {% csrf_token %}
+
+          <div class="pt-5 mt5">
+            <input
+              type="email"
+              name="email"
+              class="form-control mb-4"
+              placeholder="E-mail"
+              required
+            />
+
+            <!-- Password -->
+            <input
+              type="password"
+              name="password"
+              class="form-control mb-4"
+              placeholder="Password"
+              required
+            />
+          </div>
+
+          <!-- Sign in button -->
+          <button
+            class="btn btn-primary btn-rounded btn-block mt-5 mb-4 waves-effect z-depth-0"
+            type="submit"
+          >
+            Sign in
+          </button>
+
+          <!-- Register -->
+          <p>Not a member? <a href="{% url 'register' %}">Register</a></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}

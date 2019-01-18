@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+<!-- start main section -->
+{% block content %}
+<main class="container">
+  <section class="pt-5">
+    <div class="col-9">
+      <h1 class="grey-text">
+        WELCOME <br />
+        TO
+      </h1>
+      <h1 class="display-1 light-blue-text">SHIMASU</h1>
+
+      <a
+        href="{% url 'progress' %}"
+        class="btn btn-primary btn-lg font-weight-bold rounded mt-2"
+      >
+        OUR PROGRESS
+      </a>
+    </div>
+  </section>
+</main>
+{% endblock %}

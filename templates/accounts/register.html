@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+<!-- start main section -->
+{% block content %}
+<main class="container pt-1">
+  <section style="max-width:500px;margin:0 auto;">
+    <div class="card">
+      <h5 class="card-header info-color white-text text-center py-4">
+        <strong>Register</strong>
+      </h5>
+
+      <!--Card content-->
+      <div class="card-body px-lg-5 pt-0">
+        <!-- Form -->
+        <form
+          method="POST"
+          action="{% url 'register' %}"
+          class="text-center"
+          style="color: #757575;"
+        >
+          {% csrf_token %}
+
+          <div class="pt-5 mt5">
+            <div class="form-row mb-4">
+              <div class="col">
+                <input
+                  type="text"
+                  name="first"
+                  class="form-control"
+                  placeholder="First name"
+                  required
+                />
+              </div>
+              <div class="col">
+                <input
+                  type="text"
+                  name="last"
+                  class="form-control"
+                  placeholder="Last name"
+                  required
+                />
+              </div>
+            </div>
+
+            <input
+              type="email"
+              name="email"
+              class="form-control mb-4"
+              placeholder="E-mail"
+              required
+            />
+
+            <input
+              type="username"
+              name="username"
+              class="form-control mb-4"
+              placeholder="Username"
+              required
+            />
+
+            <input
+              type="password"
+              name="password"
+              class="form-control mb-4"
+              placeholder="Password"
+              required
+            />
+          </div>
+
+          <button
+            class="btn btn-primary btn-rounded btn-block mt-5 mb-4 waves-effect z-depth-0"
+            type="submit"
+          >
+            REGISTER
+          </button>
+
+          <p>Have an account? <a href="{% url 'login' %}">Login</a></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}
