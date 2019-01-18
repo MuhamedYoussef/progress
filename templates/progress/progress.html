@@ -12,13 +12,18 @@
           <a>
             <span class="circle"><i class="far fa-user"></i></span>
             <span class="label"
-              >{{ user.first_name }} {{ user.last_name }}</span
+              >{{ progress.owner.first_name }}
+              {{ progress.owner.last_name }}</span
             >
           </a>
 
-          <div class="step-content grey lighten-3 rounded">
+          <div class="step-content grey lighten-3 rounded" style="width:80%;">
             <h3>{{ progress.title }}</h3>
-            <p style="font-size:1.1rem">{{ progress.details }}</p>
+            <hr />
+            <p style="font-size:1.1rem;">{{ progress.details }}</p>
+            <p class="text-right grey-text font-weight-bold">
+              {{ progress.added }}
+            </p>
           </div>
         </li>
         {% endfor %}

@@ -14,6 +14,7 @@ def register(request):
         email = request.POST['email']
         username = request.POST['username']
         password = request.POST['password']
+        code = request.POST['code']
 
         if len(first) < 3 or len(last) < 3 or len(email) < 8 or len(username) < 3 or len(password) < 5:
             messages.error(request, 'Invalid Form!')
@@ -25,6 +26,10 @@ def register(request):
 
         if User.objects.filter(email=email.lower()).exists():
             messages.error(request, 'Email already exists')
+            return redirect('register')
+
+        if code != 'Shim@su':
+            messages.error(request, 'Wrong Code')
             return redirect('register')
 
         user = User.objects.create_user(

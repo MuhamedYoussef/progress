@@ -18,7 +18,8 @@ def add(request):
         title = request.POST['title']
         details = request.POST['details']
 
-        Progress.objects.create(title=title, details=details)
+        Progress.objects.create(
+            owner=request.user, title=title, details=details)
         return redirect('progress')
 
     return render(request, 'progress/add.html')
