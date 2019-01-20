@@ -23,3 +23,9 @@ def add(request):
         return redirect('progress')
 
     return render(request, 'progress/add.html')
+
+
+@login_required
+def remove(request, id):
+    Progress.objects.filter(id=id).delete()
+    return redirect('progress')
